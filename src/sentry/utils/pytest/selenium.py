@@ -166,8 +166,6 @@ def percy(request):
     percy = percy.Runner(loader=loader, config=percy_config)
     percy.initialize_build()
 
-    print(os.getenv('PERCY_PARALLEL_TOTAL'))
-    print(os.getenv('PERCY_PARALLEL_NONCE'))
     request.addfinalizer(percy.finalize_build)
     return percy
 
